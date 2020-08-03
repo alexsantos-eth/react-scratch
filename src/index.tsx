@@ -6,8 +6,8 @@ import { hydrate, render } from 'react-dom'
 import App from './App/App'
 
 // ROOT
-const root:HTMLDivElement = document.getElementById('root') as HTMLDivElement
+const root: HTMLDivElement = document.getElementById('root') as HTMLDivElement
 
 // RENDER
-if(!root.hasChildNodes()) render(<App/>, root)
-else hydrate(<App/>, root)
+if (!root.hasChildNodes()) render(<App />, root)
+else hydrate(<App />, root)

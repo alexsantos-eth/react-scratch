@@ -13,17 +13,27 @@ const fs = require('fs')
 const indexPath = path.resolve(__dirname, 'public', 'index.html')
 
 // PARSE HTML
-const toHTML = (component, buffer) => buffer.replace('<div id="root"></div>', `<div id="root">${ReactDOM.renderToString(React.createElement(component))}</div>`).replace('<script src="../dist/bundle.js"></script>', '')
+const toHTML = (component, buffer) =>
+	buffer
+		.replace(
+			'<div id="root"></div>',
+			`<div id="root">${ReactDOM.renderToString(React.createElement(component))}</div>`
+		)
+		.replace('<script src="../dist/bundle.js"></script>', '')
 
 console.log('\n😴 Esperando a leer archivo de inicio ...\n')
 
 fs.readFile(indexPath, 'utf-8', (err, data) => {
-    if(err) console.log('Error while reading index')
-    else{
-        console.log('🤖 Configurando servidor ...\n')
+	if (err) console.log('Error while reading index')
+	else {
+		console.log('🤖 Configurando servidor ...\n')
 
-        // RENDER APP
-        const finalHTML = toHTML(App, data)
-        fs.writeFile(indexPath, finalHTML, () => console.log('😎 Aplicacion renderizada correctamente ... \n⚛️ Compilando archivos de React ...\n'))
-    }
+		// RENDER APP
+		const finalHTML = toHTML(App, data)
+		fs.writeFile(indexPath, finalHTML, () =>
+			console.log(
+				'😎 Aplicacion renderizada correctamente ... \n⚛️ Compilando archivos de React ...\n'
+			)
+		)
+	}
 })
