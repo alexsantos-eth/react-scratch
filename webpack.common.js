@@ -29,12 +29,6 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(js|jsx)$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: "babel-loader",
-                options: { presets: ["@babel/env"] }
-            },
-            {
                 enforce: "pre",
                 test: /\.js$/,
                 loader: "source-map-loader"
@@ -43,11 +37,11 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+        filename: "bundle.js",
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }),
-        new webpack.HotModuleReplacementPlugin(),
-        new CleanWebpackPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ]
 };

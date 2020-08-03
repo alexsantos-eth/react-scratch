@@ -10,5 +10,14 @@ module.exports =  merge(common, {
         publicPath: "http://localhost:8080/dist/",
         hotOnly: true
     },
+    module: {
+        rules: [
+          {
+            test: /\.(js|jsx)$/,
+            use: 'react-hot-loader/webpack',
+            include: /node_modules/
+          }
+      ]
+    },
     devtool: "source-map",
 })

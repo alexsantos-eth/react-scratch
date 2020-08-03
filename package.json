@@ -4,8 +4,9 @@
   "description": "Blog on typescript",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "start": "node devServer.js && webpack-dev-server --open --config webpack.dev.js",
+    "compile":"node_modules/typescript/bin/tsc && ./node_modules/.bin/babel dist --out-dir dist",
+    "build": "npm run compile && node server.js && webpack --config webpack.prod.js"
   },
   "author": "AlexSantos",
   "license": "MIT",
