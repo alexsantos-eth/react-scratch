@@ -6,7 +6,7 @@ const fs = require('fs')
 const indexPath = path.resolve(__dirname, 'public', 'index.html')
 
 // PARSE HTML
-const toHTML = buffer =>
+const toHTML = (buffer) =>
 	buffer.replace(
 		buffer.substr(buffer.indexOf('<div id="root">')),
 		'<div id="root"></div><script src="../dist/main.bundle.js"></script></body></html>'

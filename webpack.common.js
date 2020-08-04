@@ -21,21 +21,17 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.css$/,
+				test: /\.css$/i,
 				use: [
-					'style-loader',
+					{
+						loader: MiniCssExtractPlugin.loader,
+					},
+					'@teamsupercell/typings-for-css-modules-loader',
 					{
 						loader: 'css-loader',
-						options: {
-							modules: true,
-						},
+						options: { modules: true },
 					},
 				],
-			},
-			{
-				test: /\.css$/,
-				use: ['style-loader', 'css-loader'],
-				exclude: /\.module\.css$/,
 			},
 			{
 				enforce: 'pre',
@@ -51,7 +47,6 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
-		new MiniCssExtractPlugin(),
 		new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }),
 		new webpack.HotModuleReplacementPlugin(),
 	],
