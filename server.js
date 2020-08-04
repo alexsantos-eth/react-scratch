@@ -3,6 +3,7 @@ const React = require('react')
 const ReactDOM = require('react-dom/server')
 
 // APP
+// @ts-ignore
 const App = require('./dist/App/App').default
 
 // FILESYSTEM
@@ -32,7 +33,7 @@ fs.readFile(indexPath, 'utf-8', (err, data) => {
 		const finalHTML = toHTML(App, data)
 		fs.writeFile(indexPath, finalHTML, () =>
 			console.log(
-				'😎 Aplicacion renderizada correctamente ... \n⚛️ Compilando archivos de React ...\n'
+				'😎 Aplicación renderizada correctamente ... \n⚛️ Compilando archivos de React ...\n'
 			)
 		)
 	}

@@ -3,7 +3,9 @@ import React, { Dispatch, SetStateAction, useState } from 'react'
 
 // HOT LOADER
 import { hot } from 'react-hot-loader'
-import Navbar from '../Components/Navbar/Navbar'
+
+// COMPONENTES
+import Navbar from 'Components/Navbar/Navbar'
 
 const App: React.FC = () => {
 	const [count, setCount]: [number, Dispatch<SetStateAction<number>>] = useState(0)

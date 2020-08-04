@@ -1,11 +1,13 @@
 // REACT
 import React from 'react'
-import styles from './navbar.module.css'
+
+// ESTILOS
+import './Navbar.css'
 
 const Navbar: React.FC = () => {
 	return (
-		<nav className={styles.nav}>
-			<a href='#'>link</a>
+		<nav>
+			<a href='#'>Link 2</a>
 		</nav>
 	)
 }

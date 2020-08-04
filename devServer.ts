@@ -1,12 +1,12 @@
 // FILESYSTEM
-const path = require('path')
-const fs = require('fs')
+import path from 'path'
+import fs from 'fs'
 
 // INDEX PATH
-const indexPath = path.resolve(__dirname, 'public', 'index.html')
+const indexPath: string = path.resolve(__dirname, 'public', 'index.html')
 
 // PARSE HTML
-const toHTML = (buffer) =>
+const toHTML = (buffer: string) =>
 	buffer.replace(
 		buffer.substr(buffer.indexOf('<div id="root">')),
 		'<div id="root"></div><script src="../dist/main.bundle.js"></script></body></html>'
@@ -20,7 +20,7 @@ fs.readFile(indexPath, 'utf-8', (err, data) => {
 		console.log('🤖 Configurando servidor ...\n')
 
 		// RENDER APP
-		const finalHTML = toHTML(data)
+		const finalHTML: string = toHTML(data)
 
 		// REMPLAZAR HTML DEV
 		fs.writeFile(indexPath, finalHTML, () => console.log('😎 Servidor de desarrollo listo ... \n'))

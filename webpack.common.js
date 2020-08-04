@@ -2,34 +2,22 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
 	entry: path.resolve(__dirname, 'src', 'index.tsx'),
 	resolve: {
-		extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+		modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+		extensions: ['*', '.js', 'json', '.jsx', '.ts', '.tsx'],
 	},
+	target: 'web',
 	module: {
 		rules: [
 			{
-				test: /\.ts(x?)$/,
+				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
 				use: [
 					{
-						loader: 'ts-loader',
-					},
-				],
-			},
-			{
-				test: /\.css$/i,
-				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-					},
-					'@teamsupercell/typings-for-css-modules-loader',
-					{
-						loader: 'css-loader',
-						options: { modules: true },
+						loader: 'awesome-typescript-loader',
 					},
 				],
 			},
