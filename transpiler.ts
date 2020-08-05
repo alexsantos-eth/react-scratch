@@ -3,13 +3,14 @@ import glob from 'glob'
 import path from 'path'
 import fs from 'fs'
 
+// PATHS
 const root: string = './src'
 const dest: string = './dist'
 
 // FILES
 const filesEXT: string[] = [
 	'.jpg',
-	'png',
+	'.png',
 	'.jpeg',
 	'.gif',
 	'.css',
@@ -20,6 +21,9 @@ const filesEXT: string[] = [
 	'.ttf',
 	'.otf',
 	'.svg',
+	'.scss',
+	'.sass',
+	''.tsx'
 ]
 
 // LEER ARCHIVOS A COPIAR
